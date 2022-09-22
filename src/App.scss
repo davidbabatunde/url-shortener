@@ -1,0 +1,169 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$cyan: hsl(180, 66%, 49%);
+$darkViolet: hsl(257, 27%, 26%);
+$red: hsl(0, 87%, 67%);
+$gray: hsl(0, 0%, 75%);
+$grayishViolet: hsl(257, 7%, 63%);
+$veryDarkBlue: hsl(255, 11%, 22%);
+$veryDarkViolet: hsl(260, 8%, 14%);
+
+:root {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100vw;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+#work {
+  object-fit: cover;
+  object-position: left;
+  width: 100%;
+}
+
+.big {
+  font-weight: 800;
+  font-size: 2.375rem;
+  line-height: 2.375rem;
+  margin: 2rem auto;
+}
+
+p {
+  font-size: 1.125rem;
+  color: $grayishViolet;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+#start {
+  background-color: $cyan;
+  border: none;
+  border-radius: 2rem;
+  color: hsl(0, 43%, 99%);
+  padding: 1rem 2rem;
+}
+
+#first {
+  padding: 1rem;
+
+  #start {
+    margin: 1.5rem;
+  }
+}
+
+#stats {
+  background-color: $gray;
+  padding: 4rem 2rem;
+}
+
+.top {
+  background-color: $veryDarkViolet;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: -40px;
+}
+
+.part {
+  position: relative;
+}
+
+.spart {
+  background-color: white;
+  padding: 2rem;
+  padding-top: 40px;
+  margin-top: 80px;
+  border-radius: 0.5rem;
+}
+
+.name {
+  margin: 1rem auto;
+}
+
+#boost {
+  background-color: $darkViolet;
+  background-image: url(./images/bg-boost-mobile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  h3 {
+    color: white;
+  }
+}
+
+footer {
+  background-color: $veryDarkViolet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+
+  .logo {
+    padding: 2rem;
+    width: 200px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%)
+      hue-rotate(313deg) brightness(98%) contrast(107%);
+  }
+
+  h4 {
+    color: white;
+    font-size: 1.3rem;
+  }
+
+  #socials {
+    color: white;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.col-gap-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.col-gap-half {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+}
