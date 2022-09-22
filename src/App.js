@@ -32,11 +32,18 @@ function App() {
           </button>
         </section>
         <section id="stats">
-          <h3>Advanced Statistics</h3>
-          <p>
-            Track how your links are performing across the web with our advanced
-            statistics dashboard.
-          </p>
+          <div id="action">
+            <input placeholder="Shorten a link here..."></input>
+            <button>Shorten It!</button>
+          </div>
+          <div>
+            <h3>Advanced Statistics</h3>
+            <p>
+              Track how your links are performing across the web with our
+              advanced statistics dashboard.
+            </p>
+          </div>
+
           <div className="part">
             <div className="top">
               <img src={brand} alt="Brand Recognition" />
