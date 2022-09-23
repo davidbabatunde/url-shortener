@@ -232,7 +232,7 @@ footer {
     border: none;
     width: 280px;
     height: 40px;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     background-color: $cyan;
     font-size: 1.2rem;
     color: white;
@@ -241,4 +241,13 @@ footer {
 
 .cyan {
   color: $cyan;
+}
+.darkViolet {
+  color: $darkViolet;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }

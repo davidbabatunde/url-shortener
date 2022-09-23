@@ -13,20 +13,26 @@ import customize from "./images/icon-fully-customizable.svg";
 import "./App.scss";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import Result from "./Result";
 
 function App() {
   const intake = useRef("");
   const [url, setUrl] = useState(null);
-  const [origLink, setOrigLink] = useState(null);
-  const [shortLink, setShortLink] = useState(null);
-  const [isCopy, setIsCopy] = useState("Copy");
+  var previous = useRef(JSON.parse(localStorage.getItem("previous")) || []);
+  const [results, setResults] = useState(
+    JSON.parse(localStorage.getItem("previous"))
+  );
 
   useEffect(() => {
     const getShort = async () => {
       await axios(`https://api.shrtco.de/v2/shorten?url=${url}`).then(
         (response) => {
-          setOrigLink(response.data.result.original_link);
-          setShortLink(response.data.result.full_short_link);
+          previous.current.push({
+            orig: response.data.result.original_link,
+            short: response.data.result.full_short_link,
+          });
+          localStorage.setItem("previous", JSON.stringify(previous.current));
+          setResults(JSON.parse(localStorage.getItem("previous")));
         }
       );
     };
@@ -53,25 +59,24 @@ function App() {
           </button>
         </section>
         <section id="stats">
-          {origLink && (
-            <div id="result">
-              <p>{origLink}</p>
-              <p id="shortLink" className="cyan">
-                {shortLink}
-              </p>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(shortLink);
-                  setIsCopy("Copied!");
-                }}
-              >
-                {isCopy}
-              </button>
+          {results && (
+            <div className="results">
+              {results.map((result, index) => (
+                <Result
+                  origLink={result.orig}
+                  shortLink={result.short}
+                  key={index}
+                />
+              ))}
             </div>
           )}
           <div id="action">
             <input ref={intake} placeholder="Shorten a link here..."></input>
-            <button onClick={() => setUrl(intake.current.value)}>
+            <button
+              onClick={() => {
+                setUrl(intake.current.value);
+              }}
+            >
               Shorten It!
             </button>
           </div>
