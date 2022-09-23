@@ -11,8 +11,29 @@ import brand from "./images/icon-brand-recognition.svg";
 import records from "./images/icon-detailed-records.svg";
 import customize from "./images/icon-fully-customizable.svg";
 import "./App.scss";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const intake = useRef("");
+  const [url, setUrl] = useState(null);
+  const [origLink, setOrigLink] = useState(null);
+  const [shortLink, setShortLink] = useState(null);
+  const [isCopy, setIsCopy] = useState("Copy");
+
+  useEffect(() => {
+    const getShort = async () => {
+      await axios(`https://api.shrtco.de/v2/shorten?url=${url}`).then(
+        (response) => {
+          setOrigLink(response.data.result.original_link);
+          setShortLink(response.data.result.full_short_link);
+        }
+      );
+    };
+
+    url && getShort();
+  }, [url]);
+
   return (
     <div className="App">
       <header>
@@ -32,9 +53,28 @@ function App() {
           </button>
         </section>
         <section id="stats">
+          {origLink && (
+            <div id="result">
+              <p>{origLink}</p>
+              <p id="shortLink" className="cyan">
+                {shortLink}
+              </p>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(shortLink);
+                  setIsCopy("Copied!");
+                  event.target.style.backgroundColor = "hsl(257, 27%, 26%)";
+                }}
+              >
+                {isCopy}
+              </button>
+            </div>
+          )}
           <div id="action">
-            <input placeholder="Shorten a link here..."></input>
-            <button>Shorten It!</button>
+            <input ref={intake} placeholder="Shorten a link here..."></input>
+            <button onClick={() => setUrl(intake.current.value)}>
+              Shorten It!
+            </button>
           </div>
           <div>
             <h3>Advanced Statistics</h3>
