@@ -63,7 +63,6 @@ function App() {
                 onClick={() => {
                   navigator.clipboard.writeText(shortLink);
                   setIsCopy("Copied!");
-                  event.target.style.backgroundColor = "hsl(257, 27%, 26%)";
                 }}
               >
                 {isCopy}
