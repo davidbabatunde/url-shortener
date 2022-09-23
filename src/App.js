@@ -1,6 +1,6 @@
 import logo from "./images/logo.svg";
 import {
-  FaBars,
+  // FaBars,
   FaFacebookSquare,
   FaPinterest,
   FaTwitter,
@@ -44,19 +44,32 @@ function App() {
     <div className="App">
       <header>
         <img src={logo} alt="Comapany Logo" />
-        <FaBars size={28} />
+        {/* <FaBars alt="hamburger" size={28} /> */}
+        <div id="menu">
+          <div className="options">
+            <p>Features</p>
+            <p>Pricing</p>
+            <p>Resources</p>
+          </div>
+          <div id="signIn">
+            <p>Login</p>
+            <p id="register">Register</p>
+          </div>
+        </div>
       </header>
       <main>
         <section id="first">
           <img id="work" src={work} alt="Person working" />
-          <h2 className="big">More than just shorter links</h2>
-          <p>
-            Build your brand’s recognition and get detailed insights on how your
-            links are performing.
-          </p>
-          <button id="start">
-            <h4>Get Started</h4>
-          </button>
+          <div id="foretext">
+            <h2 className="big">More than just shorter links</h2>
+            <p>
+              Build your brand’s recognition and get detailed insights on how
+              your links are performing.
+            </p>
+            <button id="start">
+              <h4>Get Started</h4>
+            </button>
+          </div>
         </section>
         <section id="stats">
           {results && (
@@ -80,7 +93,7 @@ function App() {
               Shorten It!
             </button>
           </div>
-          <div>
+          <div id="advStats">
             <h3>Advanced Statistics</h3>
             <p>
               Track how your links are performing across the web with our
@@ -88,42 +101,44 @@ function App() {
             </p>
           </div>
 
-          <div className="part">
-            <div className="top">
-              <img src={brand} alt="Brand Recognition" />
+          <div className="items">
+            <div id="part1" className="part">
+              <div className="top">
+                <img src={brand} alt="Brand Recognition" />
+              </div>
+              <div className="spart">
+                <h4 className="name">Brand Recognition</h4>
+                <p>
+                  Boost your brand recognition with each click. Generic links
+                  don’t mean a thing. Branded links help instil confidence in
+                  your content.
+                </p>
+              </div>
             </div>
-            <div className="spart">
-              <h4 className="name">Brand Recognition</h4>
-              <p>
-                Boost your brand recognition with each click. Generic links
-                don’t mean a thing. Branded links help instil confidence in your
-                content.
-              </p>
+            <div id="part2" className="part">
+              <div className="top">
+                <img src={records} alt="Brand Recognition" />
+              </div>
+              <div className="spart">
+                <h4 className="name">Detailed Records</h4>
+                <p>
+                  Gain insights into who is clicking your links. Knowing when
+                  and where people engage with your content helps inform better
+                  decisions.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="part">
-            <div className="top">
-              <img src={records} alt="Brand Recognition" />
-            </div>
-            <div className="spart">
-              <h4 className="name">Detailed Records</h4>
-              <p>
-                Gain insights into who is clicking your links. Knowing when and
-                where people engage with your content helps inform better
-                decisions.
-              </p>
-            </div>
-          </div>
-          <div className="part">
-            <div className="top">
-              <img src={customize} alt="Brand Recognition" />
-            </div>
-            <div className="spart">
-              <h4 className="name">Fully Customizable</h4>
-              <p>
-                Improve brand awareness and content discoverability through
-                customizable links, supercharging audience engagement.
-              </p>
+            <div id="part3" className="part">
+              <div className="top">
+                <img src={customize} alt="Brand Recognition" />
+              </div>
+              <div className="spart">
+                <h4 className="name">Fully Customizable</h4>
+                <p>
+                  Improve brand awareness and content discoverability through
+                  customizable links, supercharging audience engagement.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -134,10 +149,10 @@ function App() {
           </button>
         </section>
       </main>
-      <footer className="col-gap-1">
+      <footer className="footStyle2">
         <img className="logo" src={logo} alt="Comapany Logo" />
-        <div className="col-gap-1">
-          <div className="col-gap-1">
+        <div className="footStyle2">
+          <div className="footStyle">
             <h4>Features</h4>
             <div className="col-gap-half">
               <p>Link Shortening</p>
@@ -145,7 +160,7 @@ function App() {
               <p>Analytics</p>
             </div>
           </div>
-          <div className="col-gap-1">
+          <div className="footStyle">
             <h4>Resources</h4>
             <div className="col-gap-half">
               <p>Blog</p>
@@ -153,7 +168,7 @@ function App() {
               <p>Support</p>
             </div>
           </div>
-          <div className="col-gap-1">
+          <div className="footStyle">
             <h4>Company</h4>
             <div className="col-gap-half">
               <p>About</p>

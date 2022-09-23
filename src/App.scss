@@ -76,6 +76,14 @@ h4 {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
+#menu {
+  display: none;
+}
+
 #stats {
   background-color: $gray;
   padding: 4rem 2rem;
@@ -85,6 +93,10 @@ h4 {
   flex-direction: column;
   align-items: center;
   gap: 5rem;
+
+  #advStats {
+    max-width: 400px;
+  }
 }
 
 #action {
@@ -95,17 +107,16 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  height: 150px;
-  width: 320px;
+  gap: 0.75rem;
+  height: 130px;
+  width: 86vw;
   border-radius: 1rem;
   top: -75px;
-  justify-self: center;
 
   input {
     border: none;
     height: 40px;
-    width: 250px;
+    width: 65vw;
     border-radius: 0.5rem;
     padding: 1rem;
     font-size: 1.2rem;
@@ -113,13 +124,19 @@ h4 {
 
   button {
     border: none;
-    width: 250px;
+    width: 65vw;
     height: 40px;
     border-radius: 0.5rem;
     background-color: $cyan;
     font-size: 1.2rem;
     color: white;
   }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 .top {
@@ -156,7 +173,7 @@ h4 {
   background-image: url(./images/bg-boost-mobile.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 270px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -196,7 +213,8 @@ footer {
   }
 }
 
-.col-gap-1 {
+.footStyle,
+.footStyle2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -213,7 +231,7 @@ footer {
 #result {
   background-color: white;
   border-radius: 0.5rem;
-  width: 320px;
+  width: 86vw;
   padding: 1rem;
   text-align: left;
   display: flex;
@@ -223,14 +241,14 @@ footer {
 
   p {
     font-size: 1rem;
-    width: 280px;
+    width: 65vw;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   button {
     border: none;
-    width: 280px;
+    width: 65vw;
     height: 40px;
     border-radius: 0.75rem;
     background-color: $cyan;
@@ -250,4 +268,124 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+@media (min-width: 850px) {
+  header {
+    gap: 1.5rem;
+    padding: 2rem 7vw;
+  }
+  #menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+
+    .options {
+      display: flex;
+      gap: 1rem;
+    }
+
+    #signIn {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+
+      #register {
+        background-color: $cyan;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        color: white;
+      }
+    }
+  }
+
+  #action {
+    background-image: url(./images/bg-shorten-desktop.svg);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+
+    input {
+      width: 70vw;
+      height: 50px;
+    }
+    button {
+      width: 20vw;
+      height: 50px;
+    }
+  }
+
+  #result {
+    flex-direction: row;
+
+    .cyan {
+      text-align: right;
+    }
+
+    button {
+      width: 20vw;
+    }
+  }
+
+  #first {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: left;
+    padding-left: 7vw;
+    padding-right: 0;
+    gap: 2rem;
+
+    #foretext {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      h2 {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+    }
+
+    #start {
+      margin-left: 0;
+    }
+
+    #work {
+      width: 45vw;
+    }
+  }
+
+  .items {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  #part2 {
+    margin-top: 3rem;
+  }
+  #part3 {
+    margin-top: 6rem;
+  }
+
+  #boost {
+    background-image: url(./images/bg-boost-desktop.svg);
+  }
+
+  footer {
+    padding: 5rem;
+
+    .logo {
+      padding: 0;
+    }
+    #socials {
+      padding: 0;
+    }
+  }
+  .footStyle2 {
+    flex-flow: row;
+    align-items: flex-start;
+    gap: 3rem;
+    text-align: left;
+  }
 }
