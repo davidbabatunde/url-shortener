@@ -1,6 +1,6 @@
 import logo from "./images/logo.svg";
 import {
-  // FaBars,
+  FaBars,
   FaFacebookSquare,
   FaPinterest,
   FaTwitter,
@@ -44,7 +44,9 @@ function App() {
     <div className="App">
       <header>
         <img src={logo} alt="Comapany Logo" />
-        {/* <FaBars alt="hamburger" size={28} /> */}
+        <div id="hamburger">
+          <FaBars alt="hamburger" size={28} />
+        </div>
         <div id="menu">
           <div className="options">
             <p>Features</p>
@@ -74,13 +76,16 @@ function App() {
         <section id="stats">
           {results && (
             <div className="results">
-              {results.map((result, index) => (
-                <Result
-                  origLink={result.orig}
-                  shortLink={result.short}
-                  key={index}
-                />
-              ))}
+              {results
+                .slice(0)
+                .reverse()
+                .map((result, index) => (
+                  <Result
+                    origLink={result.orig}
+                    shortLink={result.short}
+                    key={index}
+                  />
+                ))}
             </div>
           )}
           <div id="action">

@@ -9,6 +9,10 @@ function Result({ origLink, shortLink }) {
         {shortLink}
       </p>
       <button
+        style={{
+          backgroundColor:
+            isCopy === "Copied!" ? "hsl(257, 27%, 26%)" : "hsl(180, 66%, 49%)",
+        }}
         onClick={() => {
           navigator.clipboard.writeText(shortLink);
           setIsCopy("Copied!");

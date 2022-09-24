@@ -275,6 +275,10 @@ footer {
     gap: 1.5rem;
     padding: 2rem 7vw;
   }
+
+  #hamburger {
+    display: none;
+  }
   #menu {
     display: flex;
     justify-content: space-between;
